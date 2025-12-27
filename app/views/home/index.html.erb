@@ -1,0 +1,14 @@
+<div class="hero">
+  <h1>Secure Your Future</h1>
+  <p>Experience the next generation of authentication. Simple, secure, and stunningly beautiful.</p>
+  
+  <div class="mt-4">
+    <% if authenticated? %>
+      <div class="btn btn-outline" style="width: auto;">
+        Secure Dashboard Accessible
+      </div>
+    <% else %>
+      <%= link_to "Get Started Free", new_registration_path, class: "btn btn-primary", style: "width: auto; padding: 1rem 2.5rem; font-size: 1.1rem;" %>
+    <% end %>
+  </div>
+</div>

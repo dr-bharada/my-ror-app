@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auth App | Secure Portal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <%# Include stylesheet %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <%= link_to root_path, class: "brand" do %>
+            <span>AUTH APP</span><span class="dot">.</span>
+          <% end %>
+          <div class="nav-links">
+            <% if authenticated? %>
+              <span class="nav-link text-sm opacity-50">Secure Session</span>
+              <%= button_to "Logout", session_path, method: :delete, class: "btn-logout" %>
+            <% else %>
+              <%= link_to "Login", new_session_path, class: "nav-link" %>
+              <%= link_to "Sign Up", new_registration_path, class: "btn btn-primary", style: "width: auto; padding: 0.5rem 1rem;" %>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <% if flash[:alert] %>
+        <div class="alert alert-error mt-4">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <div class="alert alert-success mt-4">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>
