@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+gem "dartsass-rails"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -21,3 +22,5 @@ gem "bcrypt", "~> 3.1"
 gem "turbo-rails"
 gem "importmap-rails"
 gem "thruster"
+
+gem "stimulus-rails", "~> 1.3"

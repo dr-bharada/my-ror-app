@@ -1,7 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Auth App | Secure Portal</title>
+    <title><%= portfolio_data["profile"]["name"] %> | <%= portfolio_data["profile"]["title"] %></title>
+    <meta name="description" content="<%= portfolio_data["profile"]["summary"] %>">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= portfolio_data["profile"]["name"] %> | <%= portfolio_data["profile"]["title"] %>">
+    <meta property="og:description" content="<%= portfolio_data["profile"]["summary"] %>">
+    <meta property="og:image" content="<%= portfolio_data["projects"][0]["image"] rescue '' %>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= portfolio_data["profile"]["name"] %>">
+    <meta name="twitter:description" content="<%= portfolio_data["profile"]["summary"] %>">
+    
+    <!-- SEO & Indexing -->
+    <link rel="canonical" href="<%= request.original_url %>">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="<%= portfolio_data["skills"].flat_map { |s| s["items"] }.join(", ") %>">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "<%= portfolio_data["profile"]["name"] %>",
+        "jobTitle": "<%= portfolio_data["profile"]["title"] %>",
+        "description": "<%= portfolio_data["profile"]["summary"] %>",
+        "url": "<%= request.original_url %>",
+        "sameAs": [
+          "<%= portfolio_data["profile"]["linkedin"] %>",
+          "<%= portfolio_data["profile"]["github"] %>"
+        ],
+        "email": "mailto:<%= portfolio_data["profile"]["email"] %>",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "<%= portfolio_data["profile"]["location"] %>"
+        }
+      }
+    </script>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -9,9 +46,6 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path %>
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -22,7 +56,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <%# Include stylesheet %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -31,16 +65,14 @@
       <div class="container">
         <nav>
           <%= link_to root_path, class: "brand" do %>
-            <span>AUTH APP</span><span class="dot">.</span>
+            <img src="/icon.svg" alt="DB" style="height: 32px; width: 32px; margin-right: 0.75rem;">
+            <span>DAYA B</span><span class="dot">.</span>
           <% end %>
           <div class="nav-links">
-            <% if authenticated? %>
-              <span class="nav-link text-sm opacity-50">Secure Session</span>
-              <%= button_to "Logout", session_path, method: :delete, class: "btn-logout" %>
-            <% else %>
-              <%= link_to "Login", new_session_path, class: "nav-link" %>
-              <%= link_to "Sign Up", new_registration_path, class: "btn btn-primary", style: "width: auto; padding: 0.5rem 1rem;" %>
-            <% end %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Experience", root_path(anchor: "experience"), class: "nav-link" %>
+            <%= link_to "Projects", root_path(anchor: "projects"), class: "nav-link" %>
+            <%= link_to "Blog", blog_path, class: "nav-link" %>
           </div>
         </nav>
       </div>
@@ -61,5 +93,14 @@
 
       <%= yield %>
     </main>
+
+    <footer style="text-align: center; padding: 2rem 0; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid var(--glass-border); margin-top: 4rem;">
+      <div class="container">
+        <p>&copy; <%= Time.current.year %> <%= portfolio_data["profile"]["name"] %>. All rights reserved.</p>
+        <p style="opacity: 0.6; margin-top: 0.5rem; font-size: 0.8rem;">
+          Built with <span style="color: #CC0000; font-weight: 600;">Ruby on Rails</span> & <span style="color: var(--primary);">Stimulus</span>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,106 @@
+{
+  "profile": {
+    "name": "Daya Bharada",
+    "title": "Sr. Software Engineer | Tech Lead",
+    "email": "work.drbharada@gmail.com",
+    "location": "Rajkot, Gujarat - India",
+    "linkedin": "https://linkedin.com/in/dr-bharada",
+    "github": "https://github.com/dr-bharada",
+    "summary": "3+ years building scalable Angular & React.js applications with monorepo architecture and automated CI/CD pipelines. Expertise in REST API integration, RxJS state management, standalone components, signals & lazy loading for high-performance apps.",
+    "resume_url": "https://drive.google.com/file/d/1AsO1s0CL8FI3TX-gR8VVtdRJykj9FQPI/view?usp=sharing"
+  },
+  "skills": [
+    {
+      "category": "Core Languages",
+      "items": ["TypeScript", "JavaScript", "HTML5/CSS3", "Java"]
+    },
+    {
+      "category": "Frameworks",
+      "items": ["Angular", "React.js", "Spring Boot", "NestJS", "Ionic"]
+    },
+    {
+      "category": "Cloud & Storage",
+      "items": ["Google Cloud", "Amazon S3", "Firebase", "MongoDB", "SQLite"]
+    },
+    {
+      "category": "Engineering Tools",
+      "items": ["Cypress", "Postman", "Jira (Agile)", "GitHub", "CI/CD"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Sr. Frontend Developer",
+      "company": "0xBlock Pvt. Ltd.",
+      "location": "Rajkot, India",
+      "period": "April 2025 - Present",
+      "details": [
+        "Participated in interviews for remote team hiring, aligning new candidates with project needs.",
+        "Contributed to ReactJS-based sub-projects involving Cypress testing.",
+        "Proactively handled production incidents and implemented RCA-driven solutions.",
+        "Integrated GitHub CI/CD pipelines and contributed to SOC compliance."
+      ]
+    },
+    {
+      "role": "Angular Developer",
+      "company": "0xBlock Pvt. Ltd.",
+      "location": "Rajkot, India",
+      "period": "Dec 2024 - March 2025",
+      "details": [
+        "Deep-dive into ongoing enterprise-grade Angular projects with RxJS and Signals.",
+        "Architectural exposure to Micro-Frontend and Monorepo systems.",
+        "Collaborated with remote developers and conducted PR reviews."
+      ]
+    },
+    {
+      "role": "Jr. Software Engineer",
+      "company": "TechRover Solutions Pvt Ltd",
+      "location": "Junagadh, India",
+      "period": "July 2022 - Nov 2024",
+      "details": [
+        "Architected a unified staging environment, slashing costs by 25%.",
+        "Implemented Config-Driven Development (CDD), reducing code by 60%.",
+        "Mentored developers, resulting in a 20% team productivity increase.",
+        "Integrated dynamic email templates and complex reactive forms."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Digital Health Ecosystem (UK)",
+      "description": "A modular web platform for clinicians, hospitals, and patients. Features health vital modules, ePROs, and CallKit integration.",
+      "tags": ["Angular", "RxJS", "Signals", "Custom CMS"],
+      "image": "https://placehold.co/600x400/022c22/10b981?text=Digital+Health"
+    },
+    {
+      "title": "Loan & Risk Management",
+      "description": "Automated loan structuring and risk assessment using machine learning models and third-party integrations (HubSpot, Moody's, Trepp).",
+      "tags": ["React.js", "Machine Learning", "RBAC", "JSON API"],
+      "image": "https://placehold.co/600x400/022c22/fbbf24?text=FinTech+Platform"
+    },
+    {
+      "title": "Property Management System",
+      "description": "End-to-end reservation, room pricing, and guest profile management with transaction tracking and account management.",
+      "tags": ["Angular", "Real-time alerts", "Billing"],
+      "image": "https://placehold.co/600x400/022c22/34d399?text=Property+System"
+    }
+  ],
+  "ui": {
+    "badge": "Available for new opportunities",
+    "buttons": {
+      "contact": "Get In Touch",
+      "experience": "View Experience",
+      "resume": "Download Resume",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email Me"
+    },
+    "sections": {
+      "skills": "Technical Expertise",
+      "experience": "Work Experience",
+      "projects": "Key Projects",
+      "blog": "Engineering Blog",
+      "contact_title": "Let's Build Something Exceptional",
+      "contact_text": "I am passionate about high-performance codebases and scalable architectures. Whether you have a project in mind or just want to chat tech, I'm all ears."
+    }
+  }
+}

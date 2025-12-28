@@ -1,0 +1,81 @@
+<div class="portfolio-wrapper" data-controller="scroll-reveal">
+  <div class="background-decorations">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <% profile = portfolio_data["profile"] %>
+  <section class="portfolio-hero" data-scroll-reveal-target="item">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge"><%= ui_text("badge") %></span>
+        <h1><%= profile["name"] %></h1>
+        <p class="hero-subtitle" style="font-size: 1.5rem; color: var(--primary); font-weight: 600;"><%= profile["title"] %></p>
+        <div class="profile-summary">
+          <%= profile["summary"] %>
+        </div>
+        <div class="mt-8">
+          <a href="mailto:<%= profile["email"] %>" class="btn btn-primary"><%= ui_text("buttons.contact") %></a>
+          <a href="#experience" class="btn btn-outline" style="margin-left: 1rem;"><%= ui_text("buttons.experience") %></a>
+          <a href="<%= profile["resume_url"] %>" target="_blank" class="btn btn-outline" style="margin-left: 1rem;"><%= ui_text("buttons.resume") %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="portfolio-section" data-scroll-reveal-target="item">
+    <div class="container">
+      <h2 class="section-title"><%= ui_text("sections.skills") %></h2>
+      <div class="section-grid">
+        <%= render partial: "portfolio/components/skill_card", collection: portfolio_data["skills"], as: :category %>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="portfolio-section" style="background: rgba(2, 6, 23, 0.4);" data-scroll-reveal-target="item">
+    <div class="container">
+      <h2 class="section-title"><%= ui_text("sections.experience") %></h2>
+      <div class="timeline">
+        <% portfolio_data["experience"].each do |job| %>
+          <div class="timeline-item" data-scroll-reveal-target="item">
+            <div class="timeline-date binary-mode-ignore"><%= job["period"] %></div>
+            <div class="timeline-content">
+              <h3><%= job["role"] %></h3>
+              <div class="timeline-company"><%= job["company"] %> | <%= job["location"] %></div>
+              <ul class="timeline-details">
+                <% job["details"].each do |detail| %>
+                  <li><%= detail %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="portfolio-section" data-scroll-reveal-target="item">
+    <div class="container">
+      <h2 class="section-title"><%= ui_text("sections.projects") %></h2>
+      <div class="section-grid">
+        <%= render partial: "portfolio/components/project_card", collection: portfolio_data["projects"], as: :project %>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="portfolio-section text-center" data-scroll-reveal-target="item">
+    <div class="container">
+      <div class="glass" style="padding: 4rem; max-width: 800px; margin: 0 auto;">
+        <h2 style="margin-bottom: 1.5rem;"><%= ui_text("sections.contact_title") %></h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2.5rem;"><%= ui_text("sections.contact_text") %></p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem;">
+          <a href="<%= profile["linkedin"] %>" target="_blank" class="btn btn-outline"><%= ui_text("buttons.linkedin") %></a>
+          <a href="<%= profile["github"] %>" target="_blank" class="btn btn-outline"><%= ui_text("buttons.github") %></a>
+          <a href="mailto:<%= profile["email"] %>" class="btn btn-primary"><%= ui_text("buttons.email") %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

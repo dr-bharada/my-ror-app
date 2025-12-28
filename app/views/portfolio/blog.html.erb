@@ -1,0 +1,30 @@
+<div class="portfolio-wrapper">
+  
+  <div class="background-decorations">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <section class="portfolio-hero text-center" style="padding-top: 8rem; min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+      <div class="glass" style="padding: clamp(2rem, 5vw, 4rem); max-width: 800px; margin: 0 auto; position: relative; overflow: hidden;">
+        
+        <!-- Decorative background blur for card -->
+        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%); pointer-events: none;"></div>
+
+        <span class="badge" style="background: rgba(251, 191, 36, 0.1); color: var(--accent); border-color: rgba(251, 191, 36, 0.2); margin-bottom: 2rem; display: inline-block;">Starting 2026</span>
+        
+        <h1 class="section-title" style="font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1.5rem;">Engineering Blog</h1>
+        
+        <p style="font-size: clamp(1rem, 4vw, 1.25rem); color: var(--text-secondary); margin-bottom: 3rem; line-height: 1.8;">
+          I'm compiling my notes on <strong style="color: var(--primary);">Scalable Rails Architectures</strong>, <strong style="color: var(--primary);">Angular Performance</strong>, and <strong style="color: var(--primary);">System Design</strong>. 
+          <br>
+          Join me soon for deep-dives and tutorials.
+        </p>
+
+        <%= link_to "Back to Portfolio", root_path, class: "btn btn-outline" %>
+      </div>
+    </div>
+  </section>
+</div>

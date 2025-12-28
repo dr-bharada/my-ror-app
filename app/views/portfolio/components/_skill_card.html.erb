@@ -1,0 +1,8 @@
+<div class="glass skill-category">
+  <h3><%= category["category"] %></h3>
+  <div class="skill-tags">
+    <% category["items"].each do |item| %>
+      <span class="skill-tag"><%= item %></span>
+    <% end %>
+  </div>
+</div>
